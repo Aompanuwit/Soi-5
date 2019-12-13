@@ -13,15 +13,12 @@
 
 <style type="text/css">
 #navcolor{
-  background-color: #444444; 
+  background-color: #BBBBBB; 
 }
-#navlink a:link { 
-    color: #888888;
+#navlink  { 
+    color: #ffff;
 }
-#navlink a:visited { 
-    color: #CC9900;
-}
-.navbar-default .navbar-brand {
+#navbar {
     color: #ffff;
 }
 </style>
@@ -36,11 +33,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Soi 5 usedcar</a>
+                <a class="navbar-brand" href="index.php">Soi 5 usedcar</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navlink">
-                    <li><a href="#">หน้าหลัก</a></li>
+                    <li><a href="index.php">หน้าหลัก</a></li>
                     <li><a href="newproduct.php">เพิ่มสินค้า</a></li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
@@ -48,9 +45,10 @@
                             สินค้า <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="product.php?cat=1">NOTEBOOK</a></li>
-                            <li><a href="product.php?cat=2">STORAGE</a></li>
-                            <li><a href="product.php?cat=3">CPU</a></li>
+                            <li><a href="index.php">รถทุกประเภท</a></li>
+                            <li><a href="product.php?cat=1">รถเก่ง</a></li>
+                            <li><a href="product.php?cat=2">รถกระบะ</a></li>
+                            <li><a href="product.php?cat=3">รถตู้</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -89,10 +87,7 @@
         </div>
     </nav>
     <div class="container">
-                    <div class="jumbotron">
-                        <h1>Aomm Shop</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem quis nemo iure architecto libero doloremque nisi nulla, tempore non necessitatibus.</p>
-                    </div>
+         <p class="lead">Welcome to soi 5</p>  
                     <div class="container">
            <div class = "row">
            <?php

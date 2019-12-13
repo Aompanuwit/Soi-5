@@ -66,9 +66,10 @@
                             สินค้า <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="product.php?cat=1">NOTEBOOK</a></li>
-                            <li><a href="product.php?cat=2">STORAGE</a></li>
-                            <li><a href="product.php?cat=3">CPU</a></li>
+                            <li><a href="product.php?cat=1">รถทุกประเภท</a></li>
+                            <li><a href="product.php?cat=2">รถเก่ง</a></li>
+                            <li><a href="product.php?cat=3">รถกระบะ</a></li>
+                            <li><a href="product.php?cat=4">รถตู้</a></li>
                         </ul>
                     </li>
                 </ul>

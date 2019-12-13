@@ -1,6 +1,25 @@
 <?php 
     session_start();
     include("connect.php");
+    if(!isset($_GET['pid']) || $_GET['pid']==''){
+        header("Location:index.php");
+    }
+    else{
+        $pid = $_GET['pid'];
+    }
+    $sql="SELECT * FROM product WHERE id = $pid";
+    $result = $conn->query($sql);
+    if(!$result){
+        echo "Error : ". $conn->error;
+    }
+    else{
+        if($result->num_rows>0){
+            $prd = $result->fetch_object();
+        }
+        else{
+            $prd = NULL;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +27,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Aomm Shop</title>
+    <title>Aom Shop</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-<style type="text/css">
+    <style type="text/css">
 #navcolor{
   background-color: #444444; 
 }
@@ -88,48 +107,58 @@
         </div>
     </nav>
     <div class="container">
-    <?php
-        if(isset($_GET['pid'])){
-            $pid = $_GET['pid'];
-        }
-        else{
-            header("location:index.php");
-        }
-        $sql = "SELECT * FROM product WHERE id=$pid";
-        $result = $conn->query($sql);
-        if(!$result){
-            echo "Error ".$conn->error;
-        }
-        else{
-            if($result->num_rows>0){
-                $prd = $result->fetch_object();
-            }
-            else{
-                $prd = NULL;
-            }
-        }
-?>
         <div class="row">
-        <h2 class="text-center"><?php echo $prd->name;?></h2>
-            <div class="col-md-6 col-sm-12">
-                <div class="thumbnail">
-                    <img src="pig/<?php echo $prd->picture;?>"alt="">
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <p>Description:<?php echo $prd->description;?> </p>
-                <p>Price:<?php echo $prd->price;?></p>
-                <p>Stock:<?php echo $prd->unitInstock;?></p>
-                <p>
-                    <a href="" class="btn btn-primary">Buy now!</a>
-                    <a href="" class="btn btn-info">Add to Basket</a>
-                </p>
-            </div>
+            <form action="saveproduct.php" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Name: </label>
+                        <div class="col-md-9">
+                            <input type="text" name="txtName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="control-label col-md-3">Description: </label>
+                        <div class="col-md-9">
+                            <textarea  name="txtDescription" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="control-label col-md-3">Price: </label>
+                        <div class="col-md-9">
+                            <input type="text" name="txtPrice" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock" class="control-label col-md-3">Stock: </label>
+                        <div class="col-md-9">
+                            <input type="text" name="txtStock" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture" class="control-label col-md-3">Picture: </label>
+                        <div class="col-md-9">
+                    <input type="file" name="filePic" class="form-control-file" accept="image/*">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="" class="control-label col-md-3"> </label>
+                         <div class="col-md-9">
+                        <input type="radio" name="rdoType" value="1" checked required> notebook</label>
+                        <input type="radio" name="rdoType" value="2"> storage</label>
+                            <input type="radio" name="rdoType" value="3"> cpu</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                            <button type="submil" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                        </div>
+                           
+                         
+                        </div>
+                    </div>
+            </form>
         </div>
     </div>
-    
-
-
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>

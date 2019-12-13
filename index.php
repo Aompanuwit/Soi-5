@@ -16,10 +16,10 @@
   background-color: #444444; 
 }
 #navlink a:link { 
-    color: #FFFFFF;
+    color: #888888;
 }
 #navlink a:visited { 
-    color: #fff;
+    color: #CC9900;
 }
 .navbar-default .navbar-brand {
     color: #ffff;
@@ -47,18 +47,18 @@
                     <i class="glyphicon glyphicon-user"></i>
                             สินค้า <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu" id="">
+                        <ul class="dropdown-menu">
                             <li><a href="product.php?cat=1">NOTEBOOK</a></li>
                             <li><a href="product.php?cat=2">STORAGE</a></li>
                             <li><a href="product.php?cat=3">CPU</a></li>
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" id="navlink">
+                <ul class="nav navbar-nav navbar-right">
                 <?php 
                     if(isset($_SESSION['id'])){
                 ?>
-                    <li class="dropdown">
+                    <li class="dropdown" id="navlink">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
                         <i class="glyphicon glyphicon-user"></i>
                             ยินดีต้อนรับ <?php echo $_SESSION ['name']?> <span class="caret"></span>
@@ -118,6 +118,15 @@
                         </strong>
                         </p>
                             <a href="#" class="btn btn-success">Read more</a>
+                            <a href="editproduct.php?pid=<?php echo $prd->id?>"
+                                class="btn btn-warning">
+                                    <i class="glyphicon glyphicon-pencil"></i>Edit                     
+                                </a>
+                                
+                                <a href="deleteproduct.php?pid=<?php echo $prd->id?>"
+                                class="btn btn-danger lnkdelete" >
+                                    <i class="glyphicon glyphicon-trash"></i>Delete                     
+                                </a>
                          </p>
                     </div>
                 </div>
@@ -130,5 +139,17 @@
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        });
+        $(".lnkdelete").click(function(){
+            if(confirm("Confirm Delete?")){
+                return true;
+            }
+            else{
+            return false;
+            }
+        });
+    </script>
 </body>
 </html>

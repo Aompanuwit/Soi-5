@@ -10,9 +10,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aom Shop</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+#navcolor{
+  background-color: #444444; 
+}
+#navlink a:link { 
+    color: #888888;
+}
+#navlink a:visited { 
+    color: #CC9900;
+}
+.navbar-default .navbar-brand {
+    color: #ffff;
+}
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="navcolor">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -24,10 +38,8 @@
                 <a class="navbar-brand" href="">Aomm Shop</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="navlink">
                     <li><a href="#">หน้าหลัก</a></li>
-                    <li><a href="#">เกี่ยวกับ</a></li>
-                    <li><a href="#">ติดต่อ</a></li>
                     <li><a href="newproduct.php">เพิ่มสินค้า</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
@@ -56,7 +68,7 @@
                         <i class="glyphicon glyphicon-user"></i>
                             ยินดีต้อนรับ <?php echo $_SESSION ['name']?> <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" >
                             <li><a href="#">โปรไฟล์</a></li>
                             <li><a href="#">รายการสั่งซื้อ</a></li>
                             <li role="separator" class="divider"></li>

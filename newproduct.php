@@ -10,9 +10,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aom Shop</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+#navcolor{
+  background-color: #444444; 
+}
+#navlink a:link { 
+    color: #888888;
+}
+#navlink a:visited { 
+    color: #CC9900;
+}
+.navbar-default .navbar-brand {
+    color: #ffff;
+}
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="navcolor">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,29 +35,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Aomm Shop</a>
+                <a class="navbar-brand" href="">Soi 5 usedcar</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">product</a></li>
+                <ul class="nav navbar-nav" id="navlink">
+                    <li><a href="#">หน้าหลัก</a></li>
+                    <li><a href="newproduct.php">เพิ่มสินค้า</a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
+                    <i class="glyphicon glyphicon-user"></i>
+                            สินค้า <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="product.php?cat=1">NOTEBOOK</a></li>
+                            <li><a href="product.php?cat=2">STORAGE</a></li>
+                            <li><a href="product.php?cat=3">CPU</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <?php 
                     if(isset($_SESSION['id'])){
                 ?>
-                    <li class="dropdown">
+                    <li class="dropdown" id="navlink">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button"aria-haspopup="true"aria-expanded="false">
                         <i class="glyphicon glyphicon-user"></i>
-                        Welcome<?php echo $_SESSION ['name']?> <span class="caret"></span>
+                            ยินดีต้อนรับ <?php echo $_SESSION ['name']?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">profile</a></li>
-                            <li><a href="#">Order list</a></li>
+                            <li><a href="#">โปรไฟล์</a></li>
+                            <li><a href="#">รายการสั่งซื้อ</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="logout.php">Sign out</a></li>
+                            <li><a href="logout.php">ออกจากระบบ</a></li>
                         </ul>
                     </li>
                     <li>
@@ -55,8 +78,8 @@
                     }
                     else{
                     ?>
-                    <li><a href="login.php">log in</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="login.php">เข้าสู่ระบบ</a></li>
+                    <li><a href="#">สมัครสมาชิก</a></li>
                     <?php 
                     }
                     ?>
